@@ -41,7 +41,7 @@ public class BancoDeOccidenteTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    public void tearDown() {    
         if (driver != null) {
             driver.quit();
         }
