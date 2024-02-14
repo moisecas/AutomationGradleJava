@@ -1,4 +1,9 @@
-Feature: La barra de navegacion me permite encontrar las categorias
-  Para ver las categorias dentro de demoblaze
-  Sin loguearme
-  Puedo hacer click en cada link
+Feature: navigation bar
+  To see the subpages
+  Without logging in
+  I can click the navigation bar links
+
+  Scenario: I can acces
+    Given I navigate from https://www.demoblaze.com/
+    When I try to acces the sections
+    Then I am redictered to the page
