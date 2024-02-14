@@ -23,6 +23,10 @@ dependencies {
 
     testImplementation("org.slf4j:slf4j-simple:1.7.32")
 
+    // Cucumber
+    testImplementation("io.cucumber:cucumber-java:6.10.4")
+    testImplementation("io.cucumber:cucumber-junit:6.10.4")
+
 }
 
 tasks.test {
