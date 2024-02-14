@@ -9,15 +9,27 @@ public class demoblaze {
         // Configurar WebDriverManager para el controlador de Chrome
         WebDriverManager.chromedriver().setup();
 
-        // Iniciar el WebDriver
+        // Iniciar webdriver
         WebDriver driver = new ChromeDriver();
 
-        // Navegar a la página web
-        driver.get("https://www.demoblaze.com/");
+        // entrar a la pagina
+        driver.get("https://www.demoblaze.com/index.html");
 
-        // Localizar el elemento por su XPath y hacer clic en él
-        WebElement elemento = driver.findElement(By.xpath("//div[@id='contcont']//a[2]"));
-        elemento.click();
+        // click sobre producto
+        WebElement samsungGalaxyS6 = driver.findElement(By.xpath("//a[normalize-space()='Samsung galaxy s6']"));
+        samsungGalaxyS6.click();
+
+        // agregar al carro
+        WebElement btnSuccess = driver.findElement(By.xpath("//a[@class='btn btn-success btn-lg']"));
+        btnSuccess.click();
+
+        // Realizar clic en home
+        WebElement navLink = driver.findElement(By.xpath("//li[@class='nav-item active']//a[@class='nav-link']"));
+        navLink.click();
+
+        // Realizar clic en el elemento carrito
+        WebElement cartur = driver.findElement(By.xpath("//a[@id='cartur']"));
+        cartur.click();
 
         // Cerrar el navegador
         driver.quit();
