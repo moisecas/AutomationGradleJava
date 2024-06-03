@@ -4,7 +4,7 @@ package org.example.elements.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory; //el page factory es una clase que nos permite inicializar los elementos de la pagina
-public abstract class BasePage {
+public abstract class BasePage { //es abstracta porque no se va a instanciar, solo se va a heredar de ella para inicializar los elementos de la pagina
 
     protected WebDriver driver;
 
