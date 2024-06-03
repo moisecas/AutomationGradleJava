@@ -20,9 +20,10 @@ public class ECommerceTest {
     private CartPage cartPage; //se inicializa la pagina de carrito
 
     @Before //se ejecuta antes de cada test
-    public void setUp(){ //metodo que se encarga de inicializar el driver de chrome y la pagina de demoBlaze
-        driver= WebDriverManagerUtil.getDriver();
-        demoBlazeHomePage = new DemoBlazeHomePage(driver);
+    public void setUp() {
+        driver = WebDriverManagerUtil.getDriver();
+        driver.get("https://www.demoblaze.com/index.html"); // Abre la URL de la página principal
+        demoBlazeHomePage = new DemoBlazeHomePage(driver); //se inicializa la pagina de demoBlaze y se le pasa el driver
     }
 
     @Test //se ejecuta el test
