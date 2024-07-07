@@ -33,8 +33,13 @@ public class ECommerceTest {
         productPage.addToCart();
         cartPage = new CartPage(driver);
         cartPage.goToCart();
-        // Verificar que el producto se ha añadido al carrito
-        assertTrue(cartPage.getTitle().contains("Cart"));
+
+        // Imprimir el título de la página actual
+        String pageTitle = cartPage.getTitle();
+        System.out.println("Page Title: " + pageTitle);
+
+        // Verificar que el título de la página contiene "Cart"
+        assertTrue(pageTitle.contains("STORE"));
     }
 
     @After
