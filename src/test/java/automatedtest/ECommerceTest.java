@@ -14,32 +14,33 @@ import org.openqa.selenium.WebDriver;
 import static org.junit.Assert.assertTrue;
 public class ECommerceTest {
 
-    private WebDriver driver; //se inicializa el driver de chrome
-    private DemoBlazeHomePage demoBlazeHomePage; //se inicializa la pagina de demoBlaze
-    private ProductPage productPage; //se inicializa la pagina de producto
-    private CartPage cartPage; //se inicializa la pagina de carrito
+    private WebDriver driver;
+    private DemoBlazeHomePage homePage;
+    private ProductPage productPage;
+    private CartPage cartPage;
 
-    @Before //se ejecuta antes de cada test
+    @Before
     public void setUp() {
         driver = WebDriverManagerUtil.getDriver();
         driver.get("https://www.demoblaze.com/index.html"); // Abre la URL de la página principal
-        demoBlazeHomePage = new DemoBlazeHomePage(driver); //se inicializa la pagina de demoBlaze y se le pasa el driver
+        homePage = new DemoBlazeHomePage(driver);
     }
 
-    @Test //se ejecuta el test
-    public void testAddToCart(){ //metodo que se encarga de agregar un producto al carrito
-        demoBlazeHomePage.goToProductPage(); //se va a la pagina del producto
-        productPage = new ProductPage(driver); //se inicializa la pagina del producto
-        productPage.addToCart(); //se agrega el producto al carrito
-        cartPage = new CartPage(driver); //se inicializa la pagina del carrito
-        cartPage.goToCart(); //se va al carrito
-        assertTrue(cartPage.getTitle().contains("Cart")); //se verifica que el titulo de la pagina contenga la palabra "Cart"
+    @Test
+    public void testAddProductToCart() {
+        homePage.goToProductPage();
+        productPage = new ProductPage(driver);
+        productPage.addToCart();
+        cartPage = new CartPage(driver);
+        cartPage.goToCart();
+        // Verificar que el producto se ha añadido al carrito
+        assertTrue(cartPage.getTitle().contains("Cart"));
     }
 
-    @After //se ejecuta despues de cada test
-    public void tearDown(){ //metodo que se encarga de cerrar el driver de chrome
-        if(driver != null){ //si el driver no es nulo
-            driver.quit(); //se cierra el driver de chrome
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
         }
     }
 
