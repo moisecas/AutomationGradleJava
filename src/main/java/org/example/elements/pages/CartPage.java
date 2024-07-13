@@ -19,4 +19,8 @@ public class CartPage extends BasePage {
     public void placeOrder(){
         driver.findElement(placeOrderButton).click();
     }
+
+    public boolean isProductInCart() {
+        return false;
+    }
 }
