@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static org.junit.Assert.assertTrue;
+
 public class WebTest {
     private WebDriver driver;
 
@@ -24,7 +26,8 @@ public class WebTest {
         searchBox.submit();
 
         // Verificar que el título de la página contiene "Selenium WebDriver"
-        assert driver.getTitle().indexOf("Selenium WebDriver") != -1;
+        String title = driver.getTitle();
+        assertTrue("Title should contain 'Selenium WebDriver'", title.contains("Selenium WebDriver"));
     }
 
     @After
