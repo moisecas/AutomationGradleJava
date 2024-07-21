@@ -12,7 +12,7 @@ public class LoginSteps {
     private WebDriver driver;
     private LoginPage loginPage;
 
-    @Given("the user is on the Demoblaze login page")
+    @Given("the user is one the Demoblaze login page")
     public void the_user_is_on_the_demoblaze_login_page() {
         driver = WebDriverManagerUtil.getDriver();
         driver.get("https://www.demoblaze.com/index.html");

@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage {
 
-    private By usernameField = By.id("moisecas32"); //se crea un objeto By que contiene el id del campo de usuario
-    private By passwordField = By.id("123456"); //se crea un objeto By que contiene el id del campo de contraseña
+    private By usernameField = By.id("loginusername"); //se crea un objeto By que contiene el id del campo de usuario
+    private By passwordField = By.id("loginpassword"); //se crea un objeto By que contiene el id del campo de contraseña
     private By loginButton = By.xpath("//button[text()='Log in']");
 
     private By userElement = By.xpath("//a[@id='nameofuser']");
