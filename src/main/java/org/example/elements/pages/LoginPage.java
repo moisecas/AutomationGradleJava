@@ -8,6 +8,8 @@ public class LoginPage extends BasePage {
     private By passwordField = By.id("123456"); //se crea un objeto By que contiene el id del campo de contraseña
     private By loginButton = By.xpath("//button[text()='Log in']");
 
+    private By userElement = By.xpath("//a[@id='nameofuser']");
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -25,8 +27,11 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isLoginSuccessful() {
-        // Implement a check to verify if the login was successful
-        // For example, check if a certain element is present on the page
-        return driver.findElement(By.id("nameofElementAfterLogin")).isDisplayed();
+        try {
+            // Verifica si el elemento de usuario está visible
+            return driver.findElement(userElement).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
