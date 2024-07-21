@@ -2,6 +2,11 @@ package org.example.elements.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 public class LoginPage extends BasePage {
 
     private By usernameField = By.id("loginusername"); //se crea un objeto By que contiene el id del campo de usuario
@@ -27,11 +32,13 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isLoginSuccessful() {
+        // Verificar si el usuario está logueado correctamente
         try {
-            // Verifica si el elemento de usuario está visible
-            return driver.findElement(userElement).isDisplayed();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Esperar hasta 10 segundos
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='nameofuser']"))).isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
+
 }
