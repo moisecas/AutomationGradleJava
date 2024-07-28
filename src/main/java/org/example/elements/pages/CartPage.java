@@ -8,6 +8,8 @@ public class CartPage extends BasePage {
     private By cartlink = By.linkText("Cart");
     private  By placeOrderButton = By.xpath("//button[normalize-space()='Place Order']");
 
+    private By productInCart = By.xpath("//h2[normalize-space()='Products']");
+
     public CartPage(WebDriver driver){
         super(driver);
     }
@@ -21,6 +23,6 @@ public class CartPage extends BasePage {
     }
 
     public boolean isProductInCart() {
-        return false;
+        return driver.findElement(productInCart).isDisplayed(); //se verifica que el producto este en el carrito, isDisplayed() devuelve true si el elemento esta visible
     }
 }

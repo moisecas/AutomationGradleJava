@@ -8,6 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.example.elements.utils.WebDriverManagerUtil;
 import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 public class LoginSteps {
     private WebDriver driver;
     private LoginPage loginPage;
@@ -23,7 +28,10 @@ public class LoginSteps {
 
     @When("the user enters valid credentials")
     public void the_user_enters_valid_credentials() {
-        loginPage.enterUsername("moisecas32"); //
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); //se crea un objeto WebDriverWait que espera hasta 10 segundos
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("loginusername"))); //espera hasta que el campo de usuario este visible
+        loginPage.enterUsername("moisecas32");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("loginpassword")));
         loginPage.enterPassword("123456");
     }
 
