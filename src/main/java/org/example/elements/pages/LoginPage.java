@@ -14,6 +14,7 @@ public class LoginPage extends BasePage {
     private By loginButton = By.xpath("//button[text()='Log in']");
 
     private By userElement = By.xpath("//a[@id='nameofuser']");
+    private By logout = By.xpath("//a[@id='logout2']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -39,6 +40,15 @@ public class LoginPage extends BasePage {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void logout() {
+        driver.findElement(userElement).click();
+        driver.findElement(logout).click();
+    }
+
+    public void visuliceButtonLogin() {
+        driver.findElement(loginButton).click();
     }
 
 }
