@@ -23,7 +23,8 @@ public class LoginSteps {
         driver.get("https://www.demoblaze.com/index.html");
         loginPage = new LoginPage(driver);
         // Abre el modal de inicio de sesión
-        driver.findElement(By.xpath("//a[@id='login2']")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("login2"))).click(); //espera hasta que el boton de login este clickeable
     }
 
     @When("the user enters valid credentials")
@@ -43,7 +44,6 @@ public class LoginSteps {
     @Then("the user should be logged in successfully")
     public void the_user_should_be_logged_in_successfully() {
         assertTrue(loginPage.isLoginSuccessful());
-        driver.quit();
     }
 
 }
