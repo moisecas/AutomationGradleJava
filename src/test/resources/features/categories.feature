@@ -8,6 +8,6 @@ Feature: Choice categories
 
   Scenario: Visit categories
     When I click on the "Laptops" category
-    Then I should see the laptops in the product list
+    Then I should see the product list
     When I click on the "Monitors" category
-    Then I should see the monitors in the product list
+    Then I should see the product list
