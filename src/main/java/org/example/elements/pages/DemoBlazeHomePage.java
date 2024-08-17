@@ -16,6 +16,8 @@ public class DemoBlazeHomePage extends BasePage { //extiende de la clase BasePag
 
     private By sonyVaioI5Element = By.xpath("//a[normalize-space()='Sony vaio i5']");
     private By appleMonitor24Element = By.xpath("//a[normalize-space()='Apple monitor 24']");
+
+    private By btnContact = By.xpath("//a[normalize-space()='Contact']");
     public DemoBlazeHomePage(WebDriver driver) { //constructor de la clase
         super(driver); //se llama al constructor de la clase padre que es BasePage y se le pasa el driver
 
@@ -44,6 +46,12 @@ public class DemoBlazeHomePage extends BasePage { //extiende de la clase BasePag
     // Método para verificar si  está visible en la lista de Monitors
     public boolean isAppleMonitor24Visible() {
         return driver.findElement(appleMonitor24Element).isDisplayed();
+    }
+
+    // Método para hacer clic en el enlace de 'Contact'
+    public void clickOnContact() {
+        WebElement contactElement = driver.findElement(btnContact);
+        contactElement.click();
     }
 
 }
