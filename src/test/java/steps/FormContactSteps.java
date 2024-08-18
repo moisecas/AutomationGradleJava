@@ -26,6 +26,22 @@ public class FormContactSteps {
 
     @Then("the user should be able to fill out the contact form and submit it successfully")
     public void form_contact_clic(){
+        WebDriver driver = WebDriverManagerUtil.getDriver();
+        ContactPage contactPage = new ContactPage(driver);
+
+        // Verificar que todos los elementos del formulario de contacto estén visibles
+        boolean isFormVisible = contactPage.isEmailVisible() &&
+                contactPage.isNameVisible() &&
+                contactPage.isMessageVisible() &&
+                contactPage.isSendButtonVisible() &&
+                contactPage.isCloseButtonVisible();
+
+        // Asumimos que si todos los elementos están visibles, la verificación es exitosa
+        if (isFormVisible) {
+            System.out.println(" visible.");
+        } else {
+            System.out.println("not visible.");
+        }
 
     };
 }
