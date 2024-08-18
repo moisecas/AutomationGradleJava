@@ -17,9 +17,11 @@ public class FormContactSteps {
 
     };
 
-    @When("the user navigates to the {string} section")
+    @When("the user navigates to the Contact section")
     public void form_contact(){
-
+        driver = WebDriverManagerUtil.getDriver();
+        DemoBlazeHomePage homePage = new DemoBlazeHomePage(driver);
+        homePage.clickOnContact();
     };
 
     @Then("the user should be able to fill out the contact form and submit it successfully")
