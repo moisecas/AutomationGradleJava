@@ -50,6 +50,7 @@ public class DemoBlazeHomePage extends BasePage { //extiende de la clase BasePag
 
     // Método para hacer clic en el enlace de 'Contact'
     public void clickOnContact() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement contactElement = driver.findElement(btnContact);
         contactElement.click();
     }
