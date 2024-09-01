@@ -11,7 +11,7 @@ import java.time.Duration;
 public class DemoBlazeHomePage extends BasePage { //extiende de la clase BasePage porque es una pagina web y hereda sus metodos de inicializacion de elementos
     private By productLink = By.xpath("//a[normalize-space()='Samsung galaxy s6']"); //se crea un objeto By que contiene el link del producto (Samsung galaxy s6
 
-    private By laptopsCategory = By.xpath("//a[3]"); //categoria laptops
+    private By laptopsCategory = By.id("itemc"); //categoria laptops
     private By monitorsCategory = By.xpath("//a[4]"); //categoria monitores
 
     private By sonyVaioI5Element = By.xpath("//a[normalize-space()='Sony vaio i5']");
