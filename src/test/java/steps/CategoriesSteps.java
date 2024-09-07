@@ -15,15 +15,10 @@ public class CategoriesSteps {
         DemoBlazeHomePage homePage = new DemoBlazeHomePage(driver);
 
         // Usa los métodos de HomePage según la categoría
-        switch (category.toLowerCase()) {
-            case "laptops":
-                homePage.clickOnLaptopsCategory();
-                break;
-            case "monitors":
-                homePage.clickOnMonitorsCategory();
-                break;
-            default:
-                throw new IllegalArgumentException("Categoría no soportada: " + category);
+        if (category.equals("Laptops")) {
+            homePage.clickOnLaptopsCategory();
+        } else if (category.equals("Monitors")) {
+            homePage.clickOnMonitorsCategory();
         }
     }
 
