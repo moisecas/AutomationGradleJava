@@ -1,24 +1,37 @@
 package steps;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.example.elements.utils.WebDriverManagerUtil;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.example.elements.pages.DemoBlazeHomePage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public class CategoriesSteps {
     private WebDriver driver;
+    private DemoBlazeHomePage demoBlazeHomePage;
+
+    @Given("the user is one the Demoblaze page")
+    public void the_user_is_on_the_demoblaze_page() {
+        driver.get("https://www.demoblaze.com");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+
     @When("I click on the {string} category")
     public void i_click_on_the_category(String category) {
-        driver = WebDriverManagerUtil.getDriver();
-        DemoBlazeHomePage homePage = new DemoBlazeHomePage(driver);
 
         // Usa los métodos de HomePage según la categoría
-        if (category.equals("Laptops")) {
-            homePage.clickOnLaptopsCategory();
-        } else if (category.equals("Monitors")) {
-            homePage.clickOnMonitorsCategory();
+        if (category.equalsIgnoreCase("Laptops")) {
+            demoBlazeHomePage.clickOnLaptopsCategory();
+        } else if (category.equalsIgnoreCase("Monitors")) {
+            demoBlazeHomePage.clickOnMonitorsCategory();
         }
     }
 
@@ -37,8 +50,5 @@ public class CategoriesSteps {
                 throw new IllegalArgumentException("Invalid category: " + category);
         }
     }
-
-
-
 
 }

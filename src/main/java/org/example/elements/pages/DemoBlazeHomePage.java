@@ -30,7 +30,8 @@ public class DemoBlazeHomePage extends BasePage { //extiende de la clase BasePag
     }
 
     public void clickOnLaptopsCategory() {
-        WebElement laptopsElement = driver.findElement(laptopsCategory);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Espera de 10 segundos
+        WebElement laptopsElement = wait.until(ExpectedConditions.visibilityOfElementLocated(laptopsCategory)); // Espera a que el elemento sea visible
         laptopsElement.click();
     }
 
