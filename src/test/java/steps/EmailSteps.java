@@ -63,7 +63,6 @@ public class EmailSteps {
         attachButton.click();
 
 
-
         WebElement searchField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id=':7c']")));
         searchField.sendKeys("prueba");
         try {
@@ -92,20 +91,10 @@ public class EmailSteps {
     }
 
 
-
-
-
     @When("the user clicks the Send button")
     public void the_user_clicks_the_send_button() {
         WebElement sendButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id=':7c']")));
         sendButton.click();
     }
-
-
-//    @Then("the email should be sent successfully")
-//    public void the_email_should_be_sent_successfully() {
-//        // Verifica que el mensaje fue enviado con éxito
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Message sent.']")));
-//    }
 
 }
