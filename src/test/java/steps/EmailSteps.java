@@ -57,6 +57,8 @@ public class EmailSteps {
         // Escribir el cuerpo del mensaje
         WebElement bodyField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id=':90']")));
         bodyField.sendKeys("Enviando documento");
+        bodyField.sendKeys(" Aquí está el enlace al documento: https://drive.google.com/file/d/1UP3hEMBvb3wlo5OqYZWeJ3PYXTMmbLb8/view?usp=sharing");
+
 
         // Clic en el botón para adjuntar archivo
         WebElement attachButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id=':9k']")));
